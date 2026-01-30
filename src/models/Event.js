@@ -87,7 +87,7 @@ const eventSchema = new mongoose.Schema(
   {
     timestamps: true,
     versionKey: false,
-  }
+  },
 );
 
 eventSchema.pre(/^find/, async function (next) {
@@ -98,7 +98,7 @@ eventSchema.pre(/^find/, async function (next) {
       status: "published",
       endDateTime: { $lt: new Date() },
     },
-    { status: "completed" }
+    { status: "completed" },
   );
   next();
 });
